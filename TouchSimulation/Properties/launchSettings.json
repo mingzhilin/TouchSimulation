@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TouchSimulation": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{772CAE7F-D96C-4AD1-919D-FB931DB9EC23}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FirmwareSimulator</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>U:\WeidaHiTech\SourceCode\WT0014\iTouch;U:\WeidaHiTech\SourceCode\WT0014\mp;U:\WeidaHiTech\SourceCode\WT0014\pen;U:\WeidaHiTech\SourceCode\WT0014\rom;U:\WeidaHiTech\SourceCode\WT0014\system;U:\WeidaHiTech\SourceCode\WT0014\touch;$(IncludePath)</IncludePath>
+    <OutDir>..\TouchSimulation\bin\Debug\netcoreapp3.1</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>U:\WeidaHiTech\SourceCode\WT0014\iTouch;U:\WeidaHiTech\SourceCode\WT0014\mp;U:\WeidaHiTech\SourceCode\WT0014\pen;U:\WeidaHiTech\SourceCode\WT0014\rom;U:\WeidaHiTech\SourceCode\WT0014\system;U:\WeidaHiTech\SourceCode\WT0014\touch;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;FIRMWARESIMULATOR_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;FIRMWARESIMULATOR_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;FIRMWARESIMULATOR_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;FIRMWARESIMULATOR_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\WT0014\iTouch\itouch_interface.h" />
+    <ClInclude Include="..\..\WT0014\mp\mp_tool.h" />
+    <ClInclude Include="..\..\WT0014\pen\interpolator.h" />
+    <ClInclude Include="..\..\WT0014\pen\pen.h" />
+    <ClInclude Include="..\..\WT0014\pen\pen_daq.h" />
+    <ClInclude Include="..\..\WT0014\pen\pen_proc.h" />
+    <ClInclude Include="..\..\WT0014\pen\tracker.h" />
+    <ClInclude Include="..\..\WT0014\rom\sys_reloc_data.h" />
+    <ClInclude Include="..\..\WT0014\system\cmd_mode.h" />
+    <ClInclude Include="..\..\WT0014\system\conf_auto.h" />
+    <ClInclude Include="..\..\WT0014\system\conf_main.h" />
+    <ClInclude Include="..\..\WT0014\system\ctrl_main.h" />
+    <ClInclude Include="..\..\WT0014\system\debug_info.h" />
+    <ClInclude Include="..\..\WT0014\system\fifo.h" />
+    <ClInclude Include="..\..\WT0014\system\hid_comm.h" />
+    <ClInclude Include="..\..\WT0014\system\make.h" />
+    <ClInclude Include="..\..\WT0014\system\noise_detect_mode.h" />
+    <ClInclude Include="..\..\WT0014\system\overlay_manager.h" />
+    <ClInclude Include="..\..\WT0014\system\pen_sensor.h" />
+    <ClInclude Include="..\..\WT0014\system\pen_sensor_config.h" />
+    <ClInclude Include="..\..\WT0014\system\sequencer.h" />
+    <ClInclude Include="..\..\WT0014\system\svn_info.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_ckman.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_constant.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_dfe_ext.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_dma.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_dump.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_emif2apb.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_env_var.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_fsk.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_fw_loader.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_gpio.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_hid_i2c.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_i2c_slaver.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_register.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_spiflash.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_spi_master.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_spi_slaver.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_swmx.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_timer.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_types.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_uart.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_usb.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_usb_descriptor.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_util.h" />
+    <ClInclude Include="..\..\WT0014\system\sys_watchdog.h" />
+    <ClInclude Include="..\..\WT0014\system\touch_sensor.h" />
+    <ClInclude Include="..\..\WT0014\system\touch_sensor_config.h" />
+    <ClInclude Include="..\..\WT0014\system\vndcmd.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_framebuffers.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_freq_hopping.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_postprocessing.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_process.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_tracking_core.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_tracking_main.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_types.h" />
+    <ClInclude Include="..\..\WT0014\touch\algo_whck.h" />
+    <ClInclude Include="..\..\WT0014\touch\touch.h" />
+    <ClInclude Include="..\..\WT0014\touch\touch_detection.h" />
+    <ClInclude Include="..\..\WT0014\touch\touch_misc.h" />
+    <ClInclude Include="..\..\WT0014\touch\touch_region.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\WT0014\pen\interpolator.c" />
+    <ClCompile Include="..\..\WT0014\pen\pen.c" />
+    <ClCompile Include="..\..\WT0014\pen\pen_daq.c" />
+    <ClCompile Include="..\..\WT0014\pen\pen_proc.c" />
+    <ClCompile Include="..\..\WT0014\pen\tracker.c" />
+    <ClCompile Include="..\..\WT0014\system\cmd_mode.c" />
+    <ClCompile Include="..\..\WT0014\system\conf_auto.c" />
+    <ClCompile Include="..\..\WT0014\system\conf_main.c" />
+    <ClCompile Include="..\..\WT0014\system\ctrl_main.c" />
+    <ClCompile Include="..\..\WT0014\system\fifo.c" />
+    <ClCompile Include="..\..\WT0014\system\hid_comm.c" />
+    <ClCompile Include="..\..\WT0014\system\main.c" />
+    <ClCompile Include="..\..\WT0014\system\noise_detect_mode.c" />
+    <ClCompile Include="..\..\WT0014\system\overlay_manager.c" />
+    <ClCompile Include="..\..\WT0014\system\pen_sensor.c" />
+    <ClCompile Include="..\..\WT0014\system\pen_sensor_config.c" />
+    <ClCompile Include="..\..\WT0014\system\sequencer.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_ckman.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_dfe_ext.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_dma.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_dump.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_emif2apb.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_env_var.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_fsk.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_gpio.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_hid_i2c.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_i2c_slaver.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_irq.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_spiflash.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_spi_master.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_spi_slaver.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_swmx.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_timer.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_uart.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_usb.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_usb_descriptor.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_util.c" />
+    <ClCompile Include="..\..\WT0014\system\sys_watchdog.c" />
+    <ClCompile Include="..\..\WT0014\system\touch_sensor.c" />
+    <ClCompile Include="..\..\WT0014\system\touch_sensor_config.c" />
+    <ClCompile Include="..\..\WT0014\system\user_irq.c" />
+    <ClCompile Include="..\..\WT0014\system\vndcmd.c" />
+    <ClCompile Include="..\..\WT0014\touch\algo_framebuffers.c" />
+    <ClCompile Include="..\..\WT0014\touch\algo_freq_hopping.c" />
+    <ClCompile Include="..\..\WT0014\touch\algo_postprocessing.c" />
+    <ClCompile Include="..\..\WT0014\touch\algo_process.c" />
+    <ClCompile Include="..\..\WT0014\touch\algo_tracking_core.c" />
+    <ClCompile Include="..\..\WT0014\touch\algo_tracking_main.c" />
+    <ClCompile Include="..\..\WT0014\touch\algo_whck.c" />
+    <ClCompile Include="..\..\WT0014\touch\touch.c" />
+    <ClCompile Include="..\..\WT0014\touch\touch_detection.c" />
+    <ClCompile Include="..\..\WT0014\touch\touch_misc.c" />
+    <ClCompile Include="..\..\WT0014\touch\touch_region.c" />
+    <ClCompile Include="dllmain.c" />
+    <ClCompile Include="pch.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
