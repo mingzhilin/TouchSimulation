@@ -7,8 +7,8 @@ using HardwareSimulator;
 
 static class Constants
 {
-    public const string FirmwarePath = "U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0505_000.bin";
-    public const string RawImagePath = "U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0505_000.csv";
+    public const string FirmwarePath = "U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0508_000.bin";
+    public const string RawImagePath = "U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0508_000.csv";
     public const string OutputFolderName = ".\\Output";
     public const string LogFolderName = ".\\Log";
     public const string LogFileName = "TouchSimulation.log";
@@ -201,20 +201,24 @@ namespace TouchSimulation
             float yScale = (float)32767 / 1080;
             x = (int)(x / xScale);
             y = (int)(y / yScale);
-            graphics.FillRectangle(Brushes.Red, x, y, (int)xScale, (int)yScale);
+            //graphics.FillRectangle(Brushes.Red, x, y, (int)xScale, (int)yScale);
+            Pen pen = new Pen(Color.Red, 5);
+            graphics.DrawEllipse(pen, x, y, 20, 20);
 #endif
 #if false
-            Image touchOutput = new Bitmap(1920, 1080);
-            Graphics graphic = Graphics.FromImage(touchOutput);
-            graphic.FillRectangle(Brushes.White, 0, 0, 1920, 1080);
+            Image image = new Bitmap(1920, 1080);
+            Graphics graphic = Graphics.FromImage(image);
+            graphic.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
 
             //float xScale = (float)32767 / 1920;
             //float yScale = (float)32767 / 1080;
-            x = (int)(x / xScale);
-            y = (int)(y / yScale);
-            graphic.FillRectangle(Brushes.Red, x, y, (int)xScale, (int)yScale);
+            //x = (int)(x / xScale);
+            //y = (int)(y / yScale);
+            //graphic.FillRectangle(Brushes.Red, x, y, (int)xScale, (int)yScale);
+            //Pen pen = new Pen(Color.Red, 5);
+            graphic.DrawEllipse(pen, x, y, 20, 20);
 
-            touchOutput.Save(Path.Combine(Constants.OutputFolderName, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
+            image.Save(Path.Combine(Constants.OutputFolderName, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
 #endif
         }
 
