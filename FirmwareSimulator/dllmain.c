@@ -76,7 +76,7 @@ void SetupCallbackFunctions(GetNextFrameFunctionPointer GetNextFramePtr,
     SaveTouchOutputImage = SaveTouchOutputImagePtr;
 }
 
-FILE* outputLog;
+FILE* logStream;
 
 extern void ctrl_init_sys(void);
 extern void sequencer_step(void);
@@ -84,12 +84,12 @@ extern void sequencer_step(void);
 __declspec(dllexport) void StartProcessTouchSignal();
 void StartProcessTouchSignal()
 {
-    fopen_s(&outputLog, ".\\Log\\FirmwareSimulator.log", "wt");
+    fopen_s(&logStream, ".\\Log\\FirmwareSimulator.log", "wt");
 
     ctrl_init_sys();
     sequencer_step();
 
-    fclose(outputLog);
+    fclose(logStream);
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,
