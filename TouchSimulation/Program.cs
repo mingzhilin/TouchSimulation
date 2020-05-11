@@ -8,7 +8,7 @@ using HardwareSimulator;
 static class Constants
 {
     public const string FirmwarePath = "U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0508_000.bin";
-    public const string RawImagePath = "U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0508_000.csv";
+    public const string RawImagePath = "U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0511_000.csv";
     public const string OutputFolderName = ".\\Output";
     public const string LogFolderName = ".\\Log";
     public const string LogFileName = "TouchSimulation.log";
@@ -23,7 +23,7 @@ namespace TouchSimulation
     {
         static TouchInputImage touchInput;
         static Image touchOutput;
-        static Graphics graphics;
+        static Graphics comboGraphic;
 
 #if false
         [DllImport("RegionLabeling.dll")]
@@ -73,7 +73,10 @@ namespace TouchSimulation
         public delegate void UpdateNegativeRegionFunctionPointer();
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate void SaveTouchOutputImageFunctionPointer(int frameNo, int x, int y);
+        public delegate void SaveTouchOutputImageFunctionPointer(int frameNo,
+                                                                 int touchOutputCount,
+                                                                 [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] x,
+                                                                 [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] y);
 
         [DllImport("FirmwareSimulator.dll")]
         public static extern void SetupCallbackFunctions([MarshalAs(UnmanagedType.FunctionPtr)] GetNextFrameFunctionPointer GetNextFrame,
@@ -194,32 +197,25 @@ namespace TouchSimulation
             touchInput.UpdateNegativeRegion();
         }
 
-        public static void SaveTouchOutputImage(int frameNo, int x, int y)
+        public static void SaveTouchOutputImage(int frameNo, int touchOutputCount, int[] touchOutputX, int[] touchOutputY)
         {
-#if true
+            Pen touchOutputPen = new Pen(Color.Red, 5);
             float xScale = (float)32767 / 1920;
             float yScale = (float)32767 / 1080;
-            x = (int)(x / xScale);
-            y = (int)(y / yScale);
-            //graphics.FillRectangle(Brushes.Red, x, y, (int)xScale, (int)yScale);
-            Pen pen = new Pen(Color.Red, 5);
-            graphics.DrawEllipse(pen, x, y, 20, 20);
-#endif
-#if false
-            Image image = new Bitmap(1920, 1080);
-            Graphics graphic = Graphics.FromImage(image);
-            graphic.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
 
-            //float xScale = (float)32767 / 1920;
-            //float yScale = (float)32767 / 1080;
-            //x = (int)(x / xScale);
-            //y = (int)(y / yScale);
-            //graphic.FillRectangle(Brushes.Red, x, y, (int)xScale, (int)yScale);
-            //Pen pen = new Pen(Color.Red, 5);
-            graphic.DrawEllipse(pen, x, y, 20, 20);
+            Image frameImage = new Bitmap(1920, 1080);
+            Graphics frameGraphic = Graphics.FromImage(frameImage);
+            frameGraphic.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
 
-            image.Save(Path.Combine(Constants.OutputFolderName, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
-#endif
+            for (int i = 0; i < touchOutputCount; i++)
+            {
+                int x = (int)(touchOutputX[i] / xScale);
+                int y = (int)(touchOutputY[i] / yScale);
+                frameGraphic.DrawEllipse(touchOutputPen, x, y, 20, 20);
+                comboGraphic.DrawEllipse(touchOutputPen, x, y, 20, 20);
+            }
+
+            frameImage.Save(Path.Combine(Constants.OutputFolderName, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
         }
 
         static void Main(string[] args)
@@ -229,8 +225,8 @@ namespace TouchSimulation
             touchInput = new TouchInputImage(Constants.RawImagePath, Constants.ImageWidth, Constants.ImageHeight);
 
             touchOutput = new Bitmap(1920, 1080);
-            graphics = Graphics.FromImage(touchOutput);
-            graphics.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
+            comboGraphic = Graphics.FromImage(touchOutput);
+            comboGraphic.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
 
             touchInput.GetHeader();
             //touchPanel.GetNextFrame();
