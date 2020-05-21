@@ -7,8 +7,8 @@ using HardwareSimulator;
 
 static class Constants
 {
-    public const string FirmwarePath = "U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0508_000.bin";
-    public const string RawImagePath = "U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0511_000.csv";
+    public const string FirmwarePath = "U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0519_000.bin";
+    public const string RawImagePath = "U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0519_002_jig.csv";
     public const string OutputFolderName = ".\\Output";
     public const string LogFolderName = ".\\Log";
     public const string LogFileName = "TouchSimulation.log";
@@ -221,6 +221,19 @@ namespace TouchSimulation
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            if (Directory.Exists(Constants.OutputFolderName))
+            {
+                Directory.Delete(Constants.OutputFolderName, true);
+            }
+
+            if (Directory.Exists(Constants.LogFolderName))
+            {
+                Directory.Delete(Constants.LogFolderName, true);
+            }
+
+            Directory.CreateDirectory(Constants.OutputFolderName);
+            Directory.CreateDirectory(Constants.LogFolderName);
 
             touchInput = new TouchInputImage(Constants.RawImagePath, Constants.ImageWidth, Constants.ImageHeight);
 

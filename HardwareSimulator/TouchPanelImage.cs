@@ -61,16 +61,6 @@ namespace HardwareSimulator
             imageWidth = width;
             imageHeight = height;
 
-            if (Directory.Exists(Constants.OutputFolderName) == false)
-            {
-                Directory.CreateDirectory(Constants.OutputFolderName);
-            }
-
-            if (Directory.Exists(Constants.LogFolderName) == false)
-            {
-                Directory.CreateDirectory(Constants.LogFolderName);
-            }
-
             rawImageReader = new StreamReader(path);
             positiveImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.PositiveImageFileName));
             negativeImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.NegativeImageFileName));
