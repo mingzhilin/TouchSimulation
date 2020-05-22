@@ -1,0 +1,8 @@
+---
+FirmwarePath: U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0519_000.bin
+RawImagePath: U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0519_002_jig.csv
+OutputFolderName: .\\Output
+LogFolderName: .\\Log
+LogFileName: TouchSimulation.log
+ImageWidth: 46
+ImageHeight: 22

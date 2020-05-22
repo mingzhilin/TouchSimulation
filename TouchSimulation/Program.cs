@@ -3,24 +3,22 @@ using System.IO;
 using System.Drawing;
 using System.Threading;
 using System.Runtime.InteropServices;
+using YamlDotNet.RepresentationModel;
 using HardwareSimulator;
-
-static class Constants
-{
-    public const string FirmwarePath = "U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0519_000.bin";
-    public const string RawImagePath = "U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0519_002_jig.csv";
-    public const string OutputFolderName = ".\\Output";
-    public const string LogFolderName = ".\\Log";
-    public const string LogFileName = "TouchSimulation.log";
-    public const int ImageWidth = 46;
-    public const int ImageHeight = 22;
-    public const int ImageSize = ImageWidth * ImageHeight;
-}
 
 namespace TouchSimulation
 {
     class Program
     {
+        public static string firmwarePath;
+        public static string rawImagePath;
+        public static string outputFolderName;
+        public static string logFolderName;
+        public static string logFileName;
+        public static int imageWidth;
+        public static int imageHeight;
+        public static int imageSize;
+        
         static TouchInputImage touchInput;
         static Image touchOutput;
         static Graphics comboGraphic;
@@ -215,27 +213,42 @@ namespace TouchSimulation
                 comboGraphic.DrawEllipse(touchOutputPen, x, y, 20, 20);
             }
 
-            frameImage.Save(Path.Combine(Constants.OutputFolderName, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
+            frameImage.Save(Path.Combine(outputFolderName, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
         }
 
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
-            if (Directory.Exists(Constants.OutputFolderName))
+            using (var reader = new StreamReader("TouchSimulationSettings.yaml"))
             {
-                Directory.Delete(Constants.OutputFolderName, true);
+                var yaml = new YamlStream();
+                yaml.Load(reader);
+                var mapping = (YamlMappingNode)yaml.Documents[0].RootNode;
+                firmwarePath = (string)mapping.Children["FirmwarePath"];
+                rawImagePath = (string)mapping.Children["RawImagePath"];
+                outputFolderName = (string)mapping.Children["OutputFolderName"];
+                logFolderName = (string)mapping.Children["LogFolderName"];
+                logFileName = (string)mapping.Children["LogFileName"];
+                imageWidth = Int32.Parse((string)mapping.Children["ImageWidth"]);
+                imageHeight = Int32.Parse((string)mapping.Children["ImageHeight"]);
+                imageSize = imageWidth * imageHeight;
             }
 
-            if (Directory.Exists(Constants.LogFolderName))
+            if (Directory.Exists(outputFolderName))
             {
-                Directory.Delete(Constants.LogFolderName, true);
+                Directory.Delete(outputFolderName, true);
             }
 
-            Directory.CreateDirectory(Constants.OutputFolderName);
-            Directory.CreateDirectory(Constants.LogFolderName);
+            if (Directory.Exists(logFolderName))
+            {
+                Directory.Delete(logFolderName, true);
+            }
 
-            touchInput = new TouchInputImage(Constants.RawImagePath, Constants.ImageWidth, Constants.ImageHeight);
+            Directory.CreateDirectory(outputFolderName);
+            Directory.CreateDirectory(logFolderName);
+
+            touchInput = new TouchInputImage(rawImagePath, imageWidth, imageHeight);
 
             touchOutput = new Bitmap(1920, 1080);
             comboGraphic = Graphics.FromImage(touchOutput);
@@ -245,7 +258,7 @@ namespace TouchSimulation
             //touchPanel.GetNextFrame();
             //touchPanel.UpdateReferenceImage();
 
-            LoadParameterFromFirmwareBinary(Constants.FirmwarePath);
+            LoadParameterFromFirmwareBinary(firmwarePath);
 
             SetupCallbackFunctions(GetNextFrame,
                                    GetPositiveImage,
@@ -266,7 +279,7 @@ namespace TouchSimulation
             processTouchSignalThread.Start();
             processTouchSignalThread.Join();
 
-            touchOutput.Save(Path.Combine(Constants.OutputFolderName, string.Format("TouchOutput.bmp")));
+            touchOutput.Save(Path.Combine(outputFolderName, string.Format("TouchOutput.bmp")));
         }
     }
 }

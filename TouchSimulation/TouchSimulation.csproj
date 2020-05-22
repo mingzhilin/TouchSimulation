@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FirmwareSimulator\FirmwareSimulator.vcxproj" />
     <ProjectReference Include="..\HardwareSimulator\HardwareSimulator.csproj" />
     <ProjectReference Include="..\RegionLabeling\RegionLabeling.vcxproj" />
