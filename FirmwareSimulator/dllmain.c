@@ -79,6 +79,7 @@ void SetupCallbackFunctions(GetNextFrameFunctionPointer GetNextFramePtr,
 FILE* logStream;
 
 extern void ctrl_init_sys(void);
+extern void adjust_fixed_point(void);
 extern void sequencer_step(void);
 
 __declspec(dllexport) void StartProcessTouchSignal();
@@ -87,6 +88,7 @@ void StartProcessTouchSignal()
     fopen_s(&logStream, ".\\Log\\FirmwareSimulator.log", "wt");
 
     ctrl_init_sys();
+    adjust_fixed_point();
     sequencer_step();
 
     fclose(logStream);
