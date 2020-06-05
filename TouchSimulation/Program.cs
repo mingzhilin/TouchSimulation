@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Threading;
 using System.Runtime.InteropServices;
 using YamlDotNet.RepresentationModel;
-using HardwareSimulator;
+using HardwareWT0014;
 
 namespace TouchSimulation
 {
@@ -28,7 +28,7 @@ namespace TouchSimulation
         public static extern void RegionLabeling(string path, int threshold);
 #endif
 
-        [DllImport("FirmwareSimulator.dll")]
+        [DllImport("FirmwareWT0014.dll")]
         public static extern void LoadParameterFromFirmwareBinary(string path);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
@@ -76,7 +76,7 @@ namespace TouchSimulation
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] x,
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] y);
 
-        [DllImport("FirmwareSimulator.dll")]
+        [DllImport("FirmwareWT0014.dll")]
         public static extern void SetupCallbackFunctions([MarshalAs(UnmanagedType.FunctionPtr)] GetNextFrameFunctionPointer GetNextFrame,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] GetPositiveImageFunctionPointer GetPositiveImage,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] GetNegativeImageFunctionPointer GetNegativeImage,
@@ -92,7 +92,7 @@ namespace TouchSimulation
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeRegionFunctionPointer UpdateNegativeRegion,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] SaveTouchOutputImageFunctionPointer SaveTouchOuputImage);
 
-        [DllImport("FirmwareSimulator.dll")]
+        [DllImport("FirmwareWT0014.dll")]
         public static extern void StartProcessTouchSignal();
 
         public static bool GetNextFrame()

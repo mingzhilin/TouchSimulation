@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FirmwareSimulator\FirmwareSimulator.vcxproj" />
-    <ProjectReference Include="..\HardwareSimulator\HardwareSimulator.csproj" />
+    <ProjectReference Include="..\FirmwareWT0014\FirmwareWT0014.vcxproj" />
+    <ProjectReference Include="..\HardwareWT0014\HardwareWT0014.csproj" />
     <ProjectReference Include="..\RegionLabeling\RegionLabeling.vcxproj" />
   </ItemGroup>
 

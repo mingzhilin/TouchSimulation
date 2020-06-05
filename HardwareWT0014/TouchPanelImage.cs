@@ -12,12 +12,12 @@ static class Constants
     public const string LogFolderName = ".\\Log";
     public const string PositiveImageFileName = "PositiveImage.csv";
     public const string NegativeImageFileName = "NegativeImage.csv";
-    public const string LogFileName = "HardwareSimulator.log";
+    public const string LogFileName = "HardwareWT0014.log";
     public const string HeaderTag = "# CoolTouch image dump file";
     public const string FrameTag = "# Raw Image";
 }
 
-namespace HardwareSimulator
+namespace HardwareWT0014
 {
     public class TouchInputImage
     {

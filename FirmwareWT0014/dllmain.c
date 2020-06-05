@@ -85,7 +85,7 @@ extern void sequencer_step(void);
 __declspec(dllexport) void StartProcessTouchSignal();
 void StartProcessTouchSignal()
 {
-    fopen_s(&logStream, ".\\Log\\FirmwareSimulator.log", "wt");
+    fopen_s(&logStream, ".\\Log\\FirmwareWT0014.log", "wt");
 
     ctrl_init_sys();
     adjust_fixed_point();
