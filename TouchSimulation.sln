@@ -4,12 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouchSimulation", "TouchSimulation\TouchSimulation.csproj", "{3310AB98-D1E6-4396-84A4-6ADE32B28A82}"
+	ProjectSection(ProjectDependencies) = postProject
+		{80A427AC-0709-482C-B6C6-40248E1FBB07} = {80A427AC-0709-482C-B6C6-40248E1FBB07}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirmwareWT0014", "FirmwareWT0014\FirmwareWT0014.vcxproj", "{772CAE7F-D96C-4AD1-919D-FB931DB9EC23}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardwareWT0014", "HardwareWT0014\HardwareWT0014.csproj", "{A01F80DE-CA58-48B5-AA2F-CFC0789D6493}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RegionLabeling", "RegionLabeling\RegionLabeling.vcxproj", "{15D0BC75-F1D5-4A3A-9313-10B4A47F6740}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirmwareWT0031", "FirmwareWT0031\FirmwareWT0031.vcxproj", "{80A427AC-0709-482C-B6C6-40248E1FBB07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareWT0031", "HardwareWT0031\HardwareWT0031.csproj", "{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +74,29 @@ Global
 		{15D0BC75-F1D5-4A3A-9313-10B4A47F6740}.Release|x64.Build.0 = Release|x64
 		{15D0BC75-F1D5-4A3A-9313-10B4A47F6740}.Release|x86.ActiveCfg = Release|Win32
 		{15D0BC75-F1D5-4A3A-9313-10B4A47F6740}.Release|x86.Build.0 = Release|Win32
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Debug|Any CPU.Build.0 = Debug|Win32
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Debug|x64.ActiveCfg = Debug|x64
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Debug|x64.Build.0 = Debug|x64
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Debug|x86.ActiveCfg = Debug|Win32
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Debug|x86.Build.0 = Debug|Win32
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Release|Any CPU.ActiveCfg = Release|Win32
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Release|x64.ActiveCfg = Release|x64
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Release|x64.Build.0 = Release|x64
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Release|x86.ActiveCfg = Release|Win32
+		{80A427AC-0709-482C-B6C6-40248E1FBB07}.Release|x86.Build.0 = Release|Win32
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Debug|x64.Build.0 = Debug|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Debug|x86.Build.0 = Debug|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Release|x64.ActiveCfg = Release|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Release|x64.Build.0 = Release|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Release|x86.ActiveCfg = Release|Any CPU
+		{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

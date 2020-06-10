@@ -1,8 +1,22 @@
 ---
-FirmwarePath: U:\\WeidaHiTech\\TestData\\WDT875X_Flash_512k_2020_0529_000.bin
-RawImagePath: U:\\WeidaHiTech\\TestData\\WDT875X_ImageDump_2020_0529_000.csv
-OutputFolderName: .\\Output
-LogFolderName: .\\Log
-LogFileName: TouchSimulation.log
-ImageWidth: 46
-ImageHeight: 22
+Common:
+  ChipModel: WT0031
+  OutputFolder: .\Output
+  LogFolder: .\Log
+
+TouchSimulation:
+  LogFile: TouchSimulation.log
+
+WT0014:
+  FirmwarePath: U:\WeidaHiTech\TestData\WDT875X_Flash_512k_2020_0529_000.bin
+  RawImagePath: U:\WeidaHiTech\TestData\WDT875X_ImageDump_2020_0519_002_jig.csv
+  LogPath: TouchSimulation.log
+  ImageWidth: 46
+  ImageHeight: 22
+
+WT0031:
+  FirmwarePath: U:\WeidaHiTech\TestData\WDT8761A_flash_508k_2020_0610_000.bin
+  RawImagePath: U:\WeidaHiTech\TestData\WDT8761A_ImageDump_2020_0610_000.csv
+  LogPath: .\Log\FirmwareWT0031.log
+  ImageWidth: 69
+  ImageHeight: 43

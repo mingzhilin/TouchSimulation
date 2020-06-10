@@ -1,32 +1,47 @@
 ﻿using System;
 using System.IO;
-using System.Drawing;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Runtime.InteropServices;
-using YamlDotNet.RepresentationModel;
+using System.Drawing;
 using HardwareWT0031;
 
 namespace TouchSimulation
 {
-    class Program
+    class WT0031
     {
-        public static string chipModel;
-        public static string outputFolder;
-        public static string logFolder;
+        private static TouchInputImage touchInput;
 
-        public static string firmwarePath;
-        public static string rawImagePath;
-        public static string logPath;
-        public static int imageWidth;
-        public static int imageHeight;
-        public static int imageSize;
+        private readonly Image touchOutput;
+        private readonly Graphics comboGraphic;
 
-        static TouchInputImage touchInput;
-        static Image touchOutput;
-        static Graphics comboGraphic;
+        private static string outputFolder;
+
+        public WT0031(string input, int width, int height, string output)
+        {
+            touchInput = new TouchInputImage(input, width, height);
+
+            touchOutput = new Bitmap(1920, 1080);
+            comboGraphic = Graphics.FromImage(touchOutput);
+            comboGraphic.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
+
+            outputFolder = output;
+        }
+
+        #region LoadParameters
 
         [DllImport("FirmwareWT0031.dll")]
         public static extern void LoadParameterFromFirmwareBinary(string path);
+
+        public void LoadParameters(string path)
+        {
+            LoadParameterFromFirmwareBinary(path);
+        }
+
+        #endregion
+
+        #region SetupCallbackFunctions
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate bool GetNextFrameFunctionPointer();
@@ -89,25 +104,22 @@ namespace TouchSimulation
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeRegionFunctionPointer UpdateNegativeRegion,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] SaveTouchOutputImageFunctionPointer SaveTouchOuputImage);
 
-        [DllImport("FirmwareWT0031.dll")]
-        public static extern void StartProcessTouchSignal();
-
         public static bool GetNextFrame()
         {
             return touchInput.GetNextFrame();
         }
 
-        public static short GetPositiveImage(int startRow, int startCol, int currRow, int currCol)
+        public short GetPositiveImage(int startRow, int startCol, int currRow, int currCol)
         {
             return touchInput.positiveImage[currRow - startRow, currCol - startCol];
         }
 
-        public static short GetNegativeImage(int startRow, int startCol, int currRow, int currCol)
+        public short GetNegativeImage(int startRow, int startCol, int currRow, int currCol)
         {
             return touchInput.negativeImage[currRow - startRow, currCol - startCol];
         }
 
-        public static int GetRegionCount(bool isPositiveRegion)
+        public int GetRegionCount(bool isPositiveRegion)
         {
             if (isPositiveRegion == true)
             {
@@ -119,7 +131,7 @@ namespace TouchSimulation
             }
         }
 
-        public static int GetRegionLeft(bool isPositiveRegion, int regionNo)
+        public int GetRegionLeft(bool isPositiveRegion, int regionNo)
         {
             if (isPositiveRegion == true)
             {
@@ -131,7 +143,7 @@ namespace TouchSimulation
             }
         }
 
-        public static int GetRegionTop(bool isPositiveRegion, int regionNo)
+        public int GetRegionTop(bool isPositiveRegion, int regionNo)
         {
             if (isPositiveRegion == true)
             {
@@ -143,7 +155,7 @@ namespace TouchSimulation
             }
         }
 
-        public static int GetRegionRight(bool isPositiveRegion, int regionNo)
+        public int GetRegionRight(bool isPositiveRegion, int regionNo)
         {
             if (isPositiveRegion == true)
             {
@@ -155,7 +167,7 @@ namespace TouchSimulation
             }
         }
 
-        public static int GetRegionBottom(bool isPositiveRegion, int regionNo)
+        public int GetRegionBottom(bool isPositiveRegion, int regionNo)
         {
             if (isPositiveRegion == true)
             {
@@ -167,32 +179,73 @@ namespace TouchSimulation
             }
         }
 
-        public static void UpdateReferenceImage()
+        public void UpdateReferenceImage()
         {
             touchInput.UpdateReferenceImage();
         }
 
-        public static void UpdatePositiveImage()
+        public void UpdatePositiveImage()
         {
             touchInput.UpdatePositiveImage();
         }
 
-        public static void UpdateNegativeImage()
+        public void UpdateNegativeImage()
         {
             touchInput.UpdateNegativeImage();
         }
 
-        public static void UpdatePositiveRegion()
+        public void UpdatePositiveRegion()
         {
             touchInput.UpdatePositiveRegion();
         }
 
-        public static void UpdateNegativeRegion()
+        public void UpdateNegativeRegion()
         {
             touchInput.UpdateNegativeRegion();
         }
 
-        public static void SaveTouchOutputImage(int frameNo, int touchOutputCount, int[] touchOutputX, int[] touchOutputY)
+        public void SetupCallbackFunctions()
+        {
+            Console.WriteLine("+++++ WT0031: SetupCallbackFunctions +++++");
+
+            SetupCallbackFunctions(GetNextFrame,
+                                   GetPositiveImage,
+                                   GetNegativeImage,
+                                   GetRegionCount,
+                                   GetRegionLeft,
+                                   GetRegionTop,
+                                   GetRegionRight,
+                                   GetRegionBottom,
+                                   UpdateReferenceImage,
+                                   UpdatePositiveImage,
+                                   UpdateNegativeImage,
+                                   UpdatePositiveRegion,
+                                   UpdateNegativeRegion,
+                                   SaveTouchOutputImage);
+
+            Console.WriteLine("----- WT0031: SetupCallbackFunctions -----");
+        }
+
+        #endregion
+
+        #region StartProcessTouchSignal
+
+        [DllImport("FirmwareWT0031.dll")]
+        public static extern void ProcessTouchSignal(string logPath);
+
+        public static void StartProcessTouchSignal(string logPath)
+        {
+            Console.WriteLine("+++++ WT0031: StartProcessTouchSignal +++++");
+
+            ProcessTouchSignal(logPath);
+
+            Console.WriteLine("----- WT0031: StartProcessTouchSignal -----");
+        }
+
+        #endregion
+
+        #region SaveTouchOutputImage
+        public void SaveTouchOutputImage(int frameNo, int touchOutputCount, int[] touchOutputX, int[] touchOutputY)
         {
             Pen touchOutputPen = new Pen(Color.Red, 5);
             float xScale = (float)32767 / 1920;
@@ -212,77 +265,6 @@ namespace TouchSimulation
 
             frameImage.Save(Path.Combine(outputFolder, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
         }
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine("+++++ TouchSimulation +++++");
-
-            using (var reader = new StreamReader("TouchSimulationSettings.yaml"))
-            {
-                var yaml = new YamlStream();
-                yaml.Load(reader);
-                var root = (YamlMappingNode)yaml.Documents[0].RootNode;
-                var commonNodes = (YamlMappingNode)root.Children[new YamlScalarNode("Common")];
-                chipModel = (string)commonNodes.Children["ChipModel"];
-                outputFolder = (string)commonNodes.Children["OutputFolder"];
-                logFolder = (string)commonNodes.Children["LogFolder"];
-
-                var chipNodes = (YamlMappingNode)root.Children[new YamlScalarNode(chipModel)];
-                firmwarePath = (string)chipNodes.Children["FirmwarePath"];
-                rawImagePath = (string)chipNodes.Children["RawImagePath"];
-                logPath = (string)chipNodes.Children["LogPath"];
-                imageWidth = Int32.Parse((string)chipNodes.Children["ImageWidth"]);
-                imageHeight = Int32.Parse((string)chipNodes.Children["ImageHeight"]);
-                imageSize = imageWidth * imageHeight;
-            }
-
-            if (Directory.Exists(outputFolder))
-            {
-                Directory.Delete(outputFolder, true);
-            }
-
-            if (Directory.Exists(logFolder))
-            {
-                Directory.Delete(logFolder, true);
-            }
-
-            Directory.CreateDirectory(outputFolder);
-            Directory.CreateDirectory(logFolder);
-
-            touchInput = new TouchInputImage(rawImagePath, imageWidth, imageHeight);
-
-            touchOutput = new Bitmap(1920, 1080);
-            comboGraphic = Graphics.FromImage(touchOutput);
-            comboGraphic.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
-
-            touchInput.GetHeader();
-            //touchPanel.GetNextFrame();
-            //touchPanel.UpdateReferenceImage();
-
-            LoadParameterFromFirmwareBinary(firmwarePath);
-
-            SetupCallbackFunctions(GetNextFrame,
-                                   GetPositiveImage,
-                                   GetNegativeImage,
-                                   GetRegionCount,
-                                   GetRegionLeft,
-                                   GetRegionTop,
-                                   GetRegionRight,
-                                   GetRegionBottom,
-                                   UpdateReferenceImage,
-                                   UpdatePositiveImage,
-                                   UpdateNegativeImage,
-                                   UpdatePositiveRegion,
-                                   UpdateNegativeRegion,
-                                   SaveTouchOutputImage);
-
-            Thread processTouchSignalThread = new Thread(new ThreadStart(StartProcessTouchSignal));
-            processTouchSignalThread.Start();
-            processTouchSignalThread.Join();
-
-            touchOutput.Save(Path.Combine(outputFolder, string.Format("TouchOutput.bmp")));
-
-            Console.WriteLine("----- TouchSimulation -----");
-        }
+        #endregion
     }
 }

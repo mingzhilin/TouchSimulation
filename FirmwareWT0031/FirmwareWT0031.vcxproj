@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{80a427ac-0709-482c-b6c6-40248e1fbb07}</ProjectGuid>
+    <RootNamespace>FirmwareWT0031</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\TouchSimulation\bin\Debug\netcoreapp3.1\</OutDir>
+    <IncludePath>U:\WeidaHiTech\SourceCode\WT0031_main\Src;U:\WeidaHiTech\SourceCode\WT0031_main\Src\pen;U:\WeidaHiTech\SourceCode\WT0031_main\Src\system;U:\WeidaHiTech\SourceCode\WT0031_main\Src\touch;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;FIRMWAREWT0031_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;FIRMWAREWT0031_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;FIRMWAREWT0031_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;FIRMWAREWT0031_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\WT0031_main\Src\make.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\measurement.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\pen\filter.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\pen\interpolator.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\pen\mpp.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_algo.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_gui_data.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_proc.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_tcon.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\anacon.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\approx_math.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\block_access.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\command.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\config.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\data_access.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\dft.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\dump.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\fifo.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\flash_map.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\gpio.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\hid.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\hid_descriptor.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\i2c_slave.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\numeric.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\pipe.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\pmap_info.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\spi_flash.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\spi_master.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\sync_engine.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\syscon.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\uart.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\system\usb.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\algo_types.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\calibration.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\hopping.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\ms_tcon.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\postprocessing.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\ppen.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\region.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\region_labeling.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\tcop.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\tcop_opcode.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\touch.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\tracking.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\tracking_core.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\touch\whck.h" />
+    <ClInclude Include="..\..\WT0031_main\Src\types.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\WT0031_main\Src\doze_mode.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\flash_progam.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\idle_mode.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\Main.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\measurement.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\pen\filter.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\pen\interpolator.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\pen\mpp.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\pen\pen_algo.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\pen\pen_proc.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\sensing.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\sleep_mode.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\standby_mode.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\anacon.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\approx_math.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\block_access.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\command.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\config.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\config_manager.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\error_detect.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\fifo.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\hid.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\hid_descriptor.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\i2c_slave.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\isr.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\pipe.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\spi_flash.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\sync_engine.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\syscon.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\usb.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\system\watchdog.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\calibration.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\eft.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\hopping.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\ms_tcon.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\pack_image.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\postprocessing.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\ppen.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\region.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\region_labeling.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\tcop.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\touch_detection.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\touch_frontend.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\touch_timing.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\tracking.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\tracking_core.c" />
+    <ClCompile Include="..\..\WT0031_main\Src\touch\whck.c" />
+    <ClCompile Include="dllmain.c" />
+    <ClCompile Include="pch.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

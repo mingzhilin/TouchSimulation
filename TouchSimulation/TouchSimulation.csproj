@@ -15,7 +15,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FirmwareWT0014\FirmwareWT0014.vcxproj" />
+    <ProjectReference Include="..\FirmwareWT0031\FirmwareWT0031.vcxproj" />
     <ProjectReference Include="..\HardwareWT0014\HardwareWT0014.csproj" />
+    <ProjectReference Include="..\HardwareWT0031\HardwareWT0031.csproj" />
     <ProjectReference Include="..\RegionLabeling\RegionLabeling.vcxproj" />
   </ItemGroup>
 
