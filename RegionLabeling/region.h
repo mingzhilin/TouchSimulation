@@ -8,13 +8,8 @@ typedef uint8_t	    bool;
 #define TRUE	    1
 #define FALSE	    0
 
-// WT0014
-//#define FRMWIDTH    48
-//#define FRMHEIGHT   25
-
-// WT0031
-#define FRMWIDTH    84
-#define FRMHEIGHT   48
+#define FRMWIDTH    69
+#define FRMHEIGHT   43
 
 
 #define FRMSIZE	    (FRMWIDTH*FRMHEIGHT)

@@ -10,14 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="YamlDotNet" Version="8.1.1" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="YamlDotNet" Version="8.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FirmwareWT0014\FirmwareWT0014.vcxproj" />
-    <ProjectReference Include="..\FirmwareWT0031\FirmwareWT0031.vcxproj" />
-    <ProjectReference Include="..\HardwareWT0014\HardwareWT0014.csproj" />
-    <ProjectReference Include="..\HardwareWT0031\HardwareWT0031.csproj" />
+    <ProjectReference Include="..\FirmwareSimulator\FirmwareSimulator.vcxproj" />
+    <ProjectReference Include="..\HardwareSimulator\HardwareSimulator.csproj" />
     <ProjectReference Include="..\RegionLabeling\RegionLabeling.vcxproj" />
   </ItemGroup>
 

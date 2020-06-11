@@ -8,15 +8,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouchSimulation", "TouchSim
 		{80A427AC-0709-482C-B6C6-40248E1FBB07} = {80A427AC-0709-482C-B6C6-40248E1FBB07}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirmwareWT0014", "FirmwareWT0014\FirmwareWT0014.vcxproj", "{772CAE7F-D96C-4AD1-919D-FB931DB9EC23}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HardwareWT0014", "HardwareWT0014\HardwareWT0014.csproj", "{A01F80DE-CA58-48B5-AA2F-CFC0789D6493}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RegionLabeling", "RegionLabeling\RegionLabeling.vcxproj", "{15D0BC75-F1D5-4A3A-9313-10B4A47F6740}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirmwareWT0031", "FirmwareWT0031\FirmwareWT0031.vcxproj", "{80A427AC-0709-482C-B6C6-40248E1FBB07}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirmwareSimulator", "FirmwareSimulator\FirmwareSimulator.vcxproj", "{80A427AC-0709-482C-B6C6-40248E1FBB07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareWT0031", "HardwareWT0031\HardwareWT0031.csproj", "{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareSimulator", "HardwareSimulator\HardwareSimulator.csproj", "{C8F1EF9E-B722-4E32-8F1B-0FFBE04685FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

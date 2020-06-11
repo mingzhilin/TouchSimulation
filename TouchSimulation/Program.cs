@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Threading;
 using System.Runtime.InteropServices;
 using YamlDotNet.RepresentationModel;
-using HardwareWT0031;
+using HardwareSimulator;
 
 namespace TouchSimulation
 {
@@ -25,7 +25,7 @@ namespace TouchSimulation
         static Image touchOutput;
         static Graphics comboGraphic;
 
-        [DllImport("FirmwareWT0031.dll")]
+        [DllImport("FirmwareSimulator.dll")]
         public static extern void LoadParameterFromFirmwareBinary(string path);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
@@ -62,10 +62,10 @@ namespace TouchSimulation
         public delegate void UpdateNegativeImageFunctionPointer();
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate void UpdatePositiveRegionFunctionPointer();
+        public delegate void UpdatePositiveRegionFunctionPointer(int threshold);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate void UpdateNegativeRegionFunctionPointer();
+        public delegate void UpdateNegativeRegionFunctionPointer(int threshold);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void SaveTouchOutputImageFunctionPointer(int frameNo,
@@ -73,7 +73,7 @@ namespace TouchSimulation
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] x,
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] y);
 
-        [DllImport("FirmwareWT0031.dll")]
+        [DllImport("FirmwareSimulator.dll")]
         public static extern void SetupCallbackFunctions([MarshalAs(UnmanagedType.FunctionPtr)] GetNextFrameFunctionPointer GetNextFrame,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] GetPositiveImageFunctionPointer GetPositiveImage,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] GetNegativeImageFunctionPointer GetNegativeImage,
@@ -89,7 +89,7 @@ namespace TouchSimulation
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeRegionFunctionPointer UpdateNegativeRegion,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] SaveTouchOutputImageFunctionPointer SaveTouchOuputImage);
 
-        [DllImport("FirmwareWT0031.dll")]
+        [DllImport("FirmwareSimulator.dll")]
         public static extern void StartProcessTouchSignal();
 
         public static bool GetNextFrame()
@@ -182,14 +182,14 @@ namespace TouchSimulation
             touchInput.UpdateNegativeImage();
         }
 
-        public static void UpdatePositiveRegion()
+        public static void UpdatePositiveRegion(int threshold)
         {
-            touchInput.UpdatePositiveRegion();
+            touchInput.UpdatePositiveRegion(threshold);
         }
 
-        public static void UpdateNegativeRegion()
+        public static void UpdateNegativeRegion(int threshold)
         {
-            touchInput.UpdateNegativeRegion();
+            touchInput.UpdateNegativeRegion(threshold);
         }
 
         public static void SaveTouchOutputImage(int frameNo, int touchOutputCount, int[] touchOutputX, int[] touchOutputY)

@@ -12,12 +12,12 @@ static class Constants
     public const string LogFolderName = ".\\Log";
     public const string PositiveImageFileName = "PositiveImage.csv";
     public const string NegativeImageFileName = "NegativeImage.csv";
-    public const string LogFileName = "HardwareWT0014.log";
+    public const string LogFileName = "HardwareSimulator.log";
     public const string HeaderTag = "# CoolTouch image dump file";
     public const string FrameTag = "# Raw Image";
 }
 
-namespace HardwareWT0014
+namespace HardwareSimulator
 {
     public class TouchInputImage
     {
@@ -168,7 +168,7 @@ namespace HardwareWT0014
             negativeImageWriter.Flush();
         }
 
-        public void UpdatePositiveRegion()
+        public void UpdatePositiveRegion(int threshild)
         {
             positiveRegion.Clear();
 
@@ -186,7 +186,7 @@ namespace HardwareWT0014
                 }
             }
 
-            int regionCount = RegionLabeling("RegionLabelingInput.csv", 120);
+            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshild);
 
             string log = string.Format("PositiveRegionCount = {0}", regionCount);
             logWriter.WriteLine(log);
@@ -219,7 +219,7 @@ namespace HardwareWT0014
             logWriter.Flush();
         }
 
-        public void UpdateNegativeRegion()
+        public void UpdateNegativeRegion(int threshold)
         {
             negativeRegion.Clear();
 
@@ -237,7 +237,7 @@ namespace HardwareWT0014
                 }
             }
 
-            int regionCount = RegionLabeling("RegionLabelingInput.csv", 120);
+            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshold);
 
             string log = string.Format("NegativeRegionCount = {0}", regionCount);
             logWriter.WriteLine(log);

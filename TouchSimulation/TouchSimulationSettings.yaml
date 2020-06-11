@@ -17,6 +17,6 @@ WT0014:
 WT0031:
   FirmwarePath: U:\WeidaHiTech\TestData\WDT8761A_flash_508k_2020_0610_000.bin
   RawImagePath: U:\WeidaHiTech\TestData\WDT8761A_ImageDump_2020_0610_000.csv
-  LogPath: .\Log\FirmwareWT0031.log
+  LogPath: .\Log\FirmwareSimulator.log
   ImageWidth: 69
   ImageHeight: 43
