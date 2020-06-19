@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Drawing;
-using System.Threading;
+//using System.Threading;
+using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using YamlDotNet.RepresentationModel;
 using HardwareSimulator;
@@ -276,10 +277,15 @@ namespace TouchSimulation
                                    UpdateNegativeRegion,
                                    SaveTouchOutputImage);
 
+#if true
+            var firmwareTask = Task.Run(() => StartProcessTouchSignal());
+            firmwareTask.Wait();
+#else
             Thread processTouchSignalThread = new Thread(new ThreadStart(StartProcessTouchSignal));
             processTouchSignalThread.Start();
             processTouchSignalThread.Join();
 
+#endif
             touchOutput.Save(Path.Combine(outputFolder, string.Format("TouchOutput.bmp")));
 
             Console.WriteLine("----- TouchSimulation -----");
