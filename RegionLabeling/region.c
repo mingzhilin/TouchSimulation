@@ -3,6 +3,9 @@
 #include "region.h"
 
 extern FILE * fp_log;
+extern int FRMWIDTH;
+extern int FRMHEIGHT;
+extern int FRMSIZE;
 
 static inline int max(int a, int b) { return a > b ? a : b; }
 static inline int min(int a, int b) { return a < b ? a : b; }

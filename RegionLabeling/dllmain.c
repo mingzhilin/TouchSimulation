@@ -4,10 +4,10 @@
 
 extern int main_entry(char* path, int threshold);
 
-__declspec(dllexport) int RegionLabeling(char* path, int threshold);
-int RegionLabeling(char* path, int threshold)
+__declspec(dllexport) int RegionLabeling(char* path, int threshold, int frameWidth, int frameHeight);
+int RegionLabeling(char* path, int threshold, int frameWidth, int frameHeight)
 {
-    return main_entry(path, threshold);
+    return main_entry(path, threshold, frameWidth, frameHeight);
 }
 
 extern rect_t regions[N_REGIONS_MAX];

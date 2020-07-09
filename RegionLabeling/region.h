@@ -8,11 +8,11 @@ typedef uint8_t	    bool;
 #define TRUE	    1
 #define FALSE	    0
 
-#define FRMWIDTH    69
-#define FRMHEIGHT   43
+//#define FRMWIDTH    69
+//#define FRMHEIGHT   43
 
 
-#define FRMSIZE	    (FRMWIDTH*FRMHEIGHT)
+//#define FRMSIZE	    (FRMWIDTH*FRMHEIGHT)
 
 typedef struct
 {

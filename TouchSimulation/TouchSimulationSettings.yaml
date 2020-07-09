@@ -15,15 +15,11 @@ WT0014:
   ImageHeight: 22
 
 WT0031:
-  FirmwarePath: U:\WeidaHiTech\TestData\WDT8761A_flash_508k_2020_0618_000.bin
-  RawImagePath: U:\WeidaHiTech\TestData\WDT8761A_ImageDump_2020_0615_002.csv
+  FirmwarePath: U:\WeidaHiTech\TestData\WDT8761AT_flash_508k_2020_0707_000.bin
+  RawImagePath: U:\WeidaHiTech\TestData\WDT8761AT_ImageDump_2020_0707_000.csv
   LogPath: .\Log\FirmwareSimulator.log
-  ImageWidth: 69
-  ImageHeight: 43
 
 KoreaShinNts:
   FirmwarePath: U:\WeidaHiTech\TestData\WDT8761AT_flash_508k_2020_0619_Shin.bin
   RawImagePath: U:\WeidaHiTech\TestData\WDT8761AT_ImageDump_2020_0619_Pos16.csv
   LogPath: .\Log\FirmwareSimulator.log
-  ImageWidth: 78
-  ImageHeight: 44

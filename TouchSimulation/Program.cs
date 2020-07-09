@@ -29,6 +29,34 @@ namespace TouchSimulation
         [DllImport("FirmwareSimulator.dll")]
         public static extern void LoadParameterFromFirmwareBinary(string path);
 
+        [DllImport("FirmwareSimulator.dll")]
+        public static extern int GetImageWidth();
+
+        [DllImport("FirmwareSimulator.dll")]
+        public static extern int GetImageHeight();
+
+        [DllImport("FirmwareSimulator.dll")]
+        public static extern void SetupCallbackFunctions([MarshalAs(UnmanagedType.FunctionPtr)] GetNextFrameFunctionPointer GetNextFrame,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetPositiveImageFunctionPointer GetPositiveImage,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetNegativeImageFunctionPointer GetNegativeImage,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionCountFunctionPointer GetRegionCount,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionLeftFunctionPointer GetRegionLeft,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionTopFunctionPointer GetRegionTop,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionRightFunctionPointer GetRegionRight,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionBottomFunctionPointer GetRegionBottom,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateReferenceImageFunctionPointer UpdateReferenceImage,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdatePositiveImageFunctionPointer UpdatePositiveImage,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeImageFunctionPointer UpdateNegativeImag,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdatePositiveRegionFunctionPointer UpdatePositiveRegion,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeRegionFunctionPointer UpdateNegativeRegion,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] SaveTouchOutputImageFunctionPointer SaveTouchOuputImage);
+
+        [DllImport("FirmwareSimulator.dll")]
+        public static extern void StartProcessTouchSignal();
+
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        public delegate int GetImageHeightFunctionPointer();
+
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate bool GetNextFrameFunctionPointer();
 
@@ -73,25 +101,6 @@ namespace TouchSimulation
                                                                  int touchOutputCount,
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] x,
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] y);
-
-        [DllImport("FirmwareSimulator.dll")]
-        public static extern void SetupCallbackFunctions([MarshalAs(UnmanagedType.FunctionPtr)] GetNextFrameFunctionPointer GetNextFrame,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetPositiveImageFunctionPointer GetPositiveImage,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetNegativeImageFunctionPointer GetNegativeImage,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionCountFunctionPointer GetRegionCount,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionLeftFunctionPointer GetRegionLeft,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionTopFunctionPointer GetRegionTop,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionRightFunctionPointer GetRegionRight,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] GetRegionBottomFunctionPointer GetRegionBottom,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateReferenceImageFunctionPointer UpdateReferenceImage,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdatePositiveImageFunctionPointer UpdatePositiveImage,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeImageFunctionPointer UpdateNegativeImag,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdatePositiveRegionFunctionPointer UpdatePositiveRegion,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeRegionFunctionPointer UpdateNegativeRegion,
-                                                         [MarshalAs(UnmanagedType.FunctionPtr)] SaveTouchOutputImageFunctionPointer SaveTouchOuputImage);
-
-        [DllImport("FirmwareSimulator.dll")]
-        public static extern void StartProcessTouchSignal();
 
         public static bool GetNextFrame()
         {
@@ -232,9 +241,6 @@ namespace TouchSimulation
                 firmwarePath = (string)chipNodes.Children["FirmwarePath"];
                 rawImagePath = (string)chipNodes.Children["RawImagePath"];
                 logPath = (string)chipNodes.Children["LogPath"];
-                imageWidth = Int32.Parse((string)chipNodes.Children["ImageWidth"]);
-                imageHeight = Int32.Parse((string)chipNodes.Children["ImageHeight"]);
-                imageSize = imageWidth * imageHeight;
             }
 
             if (Directory.Exists(outputFolder))
@@ -250,6 +256,11 @@ namespace TouchSimulation
             Directory.CreateDirectory(outputFolder);
             Directory.CreateDirectory(logFolder);
 
+            LoadParameterFromFirmwareBinary(firmwarePath);
+            imageWidth = GetImageWidth();
+            imageHeight = GetImageHeight();
+            imageSize = imageWidth * imageHeight;
+
             touchInput = new TouchInputImage(rawImagePath, imageWidth, imageHeight);
 
             touchOutput = new Bitmap(1920, 1080);
@@ -259,8 +270,6 @@ namespace TouchSimulation
             touchInput.GetHeader();
             //touchPanel.GetNextFrame();
             //touchPanel.UpdateReferenceImage();
-
-            LoadParameterFromFirmwareBinary(firmwarePath);
 
             SetupCallbackFunctions(GetNextFrame,
                                    GetPositiveImage,

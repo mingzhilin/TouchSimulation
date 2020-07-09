@@ -22,7 +22,7 @@ namespace HardwareSimulator
     public class TouchInputImage
     {
         [DllImport("RegionLabeling.dll")]
-        public static extern int RegionLabeling(string path, int threshold);
+        public static extern int RegionLabeling(string path, int threshold, int frameWidth, int frameHeight);
 
         [DllImport("RegionLabeling.dll")]
         public static extern int GetTopLeftX(int regionNo);
@@ -186,7 +186,7 @@ namespace HardwareSimulator
                 }
             }
 
-            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshild);
+            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshild, imageWidth, imageHeight);
 
             string log = string.Format("PositiveRegionCount = {0}", regionCount);
             logWriter.WriteLine(log);
@@ -237,7 +237,7 @@ namespace HardwareSimulator
                 }
             }
 
-            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshold);
+            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshold, imageWidth, imageHeight);
 
             string log = string.Format("NegativeRegionCount = {0}", regionCount);
             logWriter.WriteLine(log);

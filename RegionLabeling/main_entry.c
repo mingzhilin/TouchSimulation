@@ -9,6 +9,10 @@
 #include <ctype.h>
 #include "region.h"
 
+int FRMWIDTH;
+int FRMHEIGHT;
+int FRMSIZE;
+
 void line_preprocessing(char * line)
 {
 	int i;
@@ -135,13 +139,21 @@ void dump_i16_image(const char * title, const char * format, const int16_t* pImg
  *                                                                        
  **************************************************************************/
 //int16_t imgPrc[FRMSIZE];
-int16_t image_buffer[FRMSIZE];
-int16_t frame_buffer[FRMSIZE];
-uint16_t labeled[FRMSIZE];	// label image pixel can be uint8_t to save space.
+//int16_t image_buffer[FRMSIZE];
+//int16_t frame_buffer[FRMSIZE];
+//uint16_t labeled[FRMSIZE];	// label image pixel can be uint8_t to save space.
 rect_t regions[N_REGIONS_MAX];
 
-int main_entry(char* path, int rg_threshold)
+int main_entry(char* path, int rg_threshold, int frameWidth, int frameHeight)
 {
+    FRMWIDTH = frameWidth;
+    FRMHEIGHT = frameHeight;
+    FRMSIZE = frameWidth * frameHeight;
+
+    int16_t* image_buffer = (int16_t*)malloc(FRMSIZE * sizeof(int16_t));
+	int16_t* frame_buffer = (int16_t*)malloc(FRMSIZE * sizeof(int16_t));
+    uint16_t* labeled = (uint16_t*)malloc(FRMSIZE * sizeof(uint16_t));		// label image pixel can be uint8_t to save space.
+
 	int rowSize = FRMHEIGHT,colSize = FRMWIDTH;
 	//int rg_threshold = 8;
 	
