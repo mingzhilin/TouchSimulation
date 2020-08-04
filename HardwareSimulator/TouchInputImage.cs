@@ -248,12 +248,21 @@ namespace HardwareSimulator
                 {
                     int topLeftX = GetTopLeftX(regionNo);
                     int topLeftY = GetTopLeftY(regionNo);
+                    int width = GetBottomRightX(regionNo) - topLeftX;
+                    int height = GetBottomRightY(regionNo) - topLeftY;
+                    positiveRegion.Add(regionNo, new Rectangle(topLeftX, topLeftY, width, height));
+                }
+            }
+
+            if (regionCount > 0)
+            {
+                for (int regionNo = 0; regionNo < regionCount; regionNo++)
+                {
+                    int topLeftX = GetTopLeftX(regionNo);
+                    int topLeftY = GetTopLeftY(regionNo);
                     int bottomRightX = GetBottomRightX(regionNo);
                     int bottomRightY = GetBottomRightY(regionNo);
-
-                    negativeRegion.Add(regionNo, new Rectangle(topLeftX, topLeftY, bottomRightX, bottomRightY));
-
-                    log = string.Format("{0} {1} {2} {3}", topLeftX, topLeftY, bottomRightX, bottomRightY);
+                    log = string.Format("NegativeRrgion[{0}]: ({1}, {2}) -> ({3}, {4})", regionNo, topLeftX, topLeftY, bottomRightX, bottomRightY);
                     logWriter.WriteLine(log);
                 }
             }
