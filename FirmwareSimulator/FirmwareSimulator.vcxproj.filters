@@ -39,148 +39,157 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\algo_types.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\calibration.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\hopping.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\ms_tcon.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\postprocessing.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\ppen.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\region.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\region_labeling.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\tcop.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\tcop_opcode.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\touch.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\tracking.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\tracking_core.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\touch\whck.h">
-      <Filter>Header Files\Touch</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\anacon.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\approx_math.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\block_access.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\command.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\config.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\data_access.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\dft.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\dump.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\fifo.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\flash_map.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\gpio.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\hid.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\hid_descriptor.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\i2c_slave.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\numeric.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\pipe.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\pmap_info.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\spi_flash.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\spi_master.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\sync_engine.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\syscon.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\uart.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system\usb.h">
-      <Filter>Header Files\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\pen\filter.h">
+    <ClInclude Include="..\..\WT0032_main\Src\pen\dft.h">
       <Filter>Header Files\Pen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\pen\interpolator.h">
+    <ClInclude Include="..\..\WT0032_main\Src\pen\filter.h">
       <Filter>Header Files\Pen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\pen\mpp.h">
+    <ClInclude Include="..\..\WT0032_main\Src\pen\interpolator.h">
       <Filter>Header Files\Pen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_algo.h">
+    <ClInclude Include="..\..\WT0032_main\Src\pen\mpp.h">
       <Filter>Header Files\Pen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_gui_data.h">
+    <ClInclude Include="..\..\WT0032_main\Src\pen\pen_algo.h">
       <Filter>Header Files\Pen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_proc.h">
+    <ClInclude Include="..\..\WT0032_main\Src\pen\pen_gui_data.h">
       <Filter>Header Files\Pen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\pen\pen_tcon.h">
+    <ClInclude Include="..\..\WT0032_main\Src\pen\pen_proc.h">
       <Filter>Header Files\Pen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\make.h">
+    <ClInclude Include="..\..\WT0032_main\Src\system\anacon.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\approx_math.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\block_access.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\command.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\config.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\data_access.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\dump.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\fifo.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\flash_map.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\gpio.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\hid.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\hid_descriptor.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\i2c_slave.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\numeric.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\pipe.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\pmap_info.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\report_manager.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\spi_flash.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\spi_master.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\sync_engine.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\syscon.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\uart.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\system\usb.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\algo_types.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\calibration.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\cd_sstcon.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\cs_sstcon.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\hopping.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\ms_tcon.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\postprocessing.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\ppen.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\region.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\region_labeling.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\self_sensing.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\tcop.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\tcop_opcode.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\touch.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\tracking.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\tracking_core.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\whck.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\make.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\measurement.h">
+    <ClInclude Include="..\..\WT0032_main\Src\measurement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\system.h">
+    <ClInclude Include="..\..\WT0032_main\Src\system.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\WT0031_main\Src\types.h">
+    <ClInclude Include="..\..\WT0032_main\Src\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -191,146 +200,155 @@
     <ClCompile Include="dllmain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\calibration.c">
+    <ClCompile Include="..\..\WT0032_main\Src\doze_mode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\flash_progam.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\measurement.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\mpp_measurement.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\sensing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\sleep_mode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\standby_mode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\touch\calibration.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\eft.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\cd_sstcon.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\hopping.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\cs_sstcon.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\ms_tcon.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\eft.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\pack_image.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\hopping.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\postprocessing.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\mouse_emu.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\ppen.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\ms_tcon.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\region.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\pack_image.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\region_labeling.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\postprocessing.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\tcop.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\ppen.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\touch_detection.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\region.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\touch_frontend.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\region_labeling.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\touch_timing.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\self_sensing.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\tracking.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\tcop.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\tracking_core.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\touch_detection.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\touch\whck.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\touch_frontend.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\anacon.c">
+    <ClCompile Include="..\..\WT0032_main\Src\touch\touch_timing.c">
+      <Filter>Source Files\Touch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\touch\tracking.c">
+      <Filter>Source Files\Touch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\touch\tracking_core.c">
+      <Filter>Source Files\Touch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\touch\whck.c">
+      <Filter>Source Files\Touch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\system\anacon.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\approx_math.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\block_access.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\block_access.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\command.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\command.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\config.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\config.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\config_manager.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\config_manager.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\error_detect.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\error_detect.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\fifo.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\fifo.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\hid.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\hid.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\hid_descriptor.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\hid_descriptor.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\i2c_slave.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\i2c_slave.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\isr.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\isr.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\pipe.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\pipe.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\report_manager.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\spi_flash.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\sync_engine.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\sync_engine.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\syscon.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\syscon.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\usb.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\usb.c">
+    <ClCompile Include="..\..\WT0032_main\Src\system\watchdog.c">
       <Filter>Source Files\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\system\watchdog.c">
-      <Filter>Source Files\System</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\pen\filter.c">
+    <ClCompile Include="..\..\WT0032_main\Src\pen\filter.c">
       <Filter>Source Files\Pen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\pen\interpolator.c">
+    <ClCompile Include="..\..\WT0032_main\Src\pen\interpolator.c">
       <Filter>Source Files\Pen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\pen\mpp.c">
+    <ClCompile Include="..\..\WT0032_main\Src\pen\mpp.c">
       <Filter>Source Files\Pen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\pen\pen_algo.c">
+    <ClCompile Include="..\..\WT0032_main\Src\pen\pen_algo.c">
       <Filter>Source Files\Pen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\pen\pen_proc.c">
+    <ClCompile Include="..\..\WT0032_main\Src\pen\pen_proc.c">
       <Filter>Source Files\Pen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\doze_mode.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\flash_progam.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\idle_mode.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\Main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\measurement.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\sensing.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\sleep_mode.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\WT0031_main\Src\standby_mode.c">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -90,7 +90,7 @@ namespace HardwareSimulator
             }
         }
 
-        public bool GetNextFrame()
+        public bool GetNextFrame(bool flipX, bool flipY)
         {
             string line = "";
             while (line.Contains(Constants.FrameTag) == false)
@@ -106,13 +106,23 @@ namespace HardwareSimulator
 
             for (int row = 0; row < imageHeight; row++)
             {
+                int destRow = row;
+                if (flipY)
+                {
+                    destRow = imageHeight - row - 1;
+                }
                 line = rawImageReader.ReadLine();
                 string[] words = line.Split(',');
                 if (words[0].Contains("CD"))
                 {
                     for (int col = 0; col < imageWidth; col++)
                     {
-                        currentImage[row, col] = Convert.ToInt16(words[col + 1]);
+                        int destCol = col;
+                        if (flipX)
+                        {
+                            destCol = imageWidth - col - 1;
+                        }
+                        currentImage[destRow, destCol] = Convert.ToInt16(words[col + 1]);
                     }
                 }
             }
@@ -122,7 +132,6 @@ namespace HardwareSimulator
 
         public void UpdateReferenceImage()
         {
-            //GetNextFrame();
             Array.Copy(currentImage, referenceImage, imageWidth * imageHeight);
         }
 
@@ -250,7 +259,7 @@ namespace HardwareSimulator
                     int topLeftY = GetTopLeftY(regionNo);
                     int width = GetBottomRightX(regionNo) - topLeftX - 1;
                     int height = GetBottomRightY(regionNo) - topLeftY - 1;
-                    positiveRegion.Add(regionNo, new Rectangle(topLeftX, topLeftY, width, height));
+                    negativeRegion.Add(regionNo, new Rectangle(topLeftX, topLeftY, width, height));
                 }
             }
 

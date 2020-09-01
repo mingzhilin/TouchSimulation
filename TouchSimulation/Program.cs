@@ -58,7 +58,7 @@ namespace TouchSimulation
         public delegate int GetImageHeightFunctionPointer();
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate bool GetNextFrameFunctionPointer();
+        public delegate bool GetNextFrameFunctionPointer(bool flipX, bool flipY);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate short GetPositiveImageFunctionPointer(int startRow, int startCol, int currRow, int currCol);
@@ -102,9 +102,9 @@ namespace TouchSimulation
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] x,
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] y);
 
-        public static bool GetNextFrame()
+        public static bool GetNextFrame(bool flipX, bool flipY)
         {
-            return touchInput.GetNextFrame();
+            return touchInput.GetNextFrame(flipX, flipY);
         }
 
         public static short GetPositiveImage(int startRow, int startCol, int currRow, int currCol)
@@ -268,8 +268,6 @@ namespace TouchSimulation
             comboGraphic.DrawRectangle(new Pen(Color.White, 5), new Rectangle(0, 0, 1920, 1080));
 
             touchInput.GetHeader();
-            //touchPanel.GetNextFrame();
-            //touchPanel.UpdateReferenceImage();
 
             SetupCallbackFunctions(GetNextFrame,
                                    GetPositiveImage,
@@ -293,7 +291,6 @@ namespace TouchSimulation
             Thread processTouchSignalThread = new Thread(new ThreadStart(StartProcessTouchSignal));
             processTouchSignalThread.Start();
             processTouchSignalThread.Join();
-
 #endif
             touchOutput.Save(Path.Combine(outputFolder, string.Format("TouchOutput.bmp")));
 
