@@ -254,6 +254,7 @@
     <ClCompile Include="..\..\WT0032_main\Src\touch\tcop.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\touch_detection.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\touch_frontend.c" />
+    <ClCompile Include="..\..\WT0032_main\Src\touch\touch_output_filter.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\touch_timing.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\tracking.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\tracking_core.c" />

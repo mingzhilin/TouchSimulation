@@ -350,5 +350,8 @@
     <ClCompile Include="..\..\WT0032_main\Src\pen\pen_proc.c">
       <Filter>Source Files\Pen</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\touch\touch_output_filter.c">
+      <Filter>Source Files\Touch</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
