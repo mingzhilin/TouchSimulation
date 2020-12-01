@@ -20,8 +20,8 @@ WT0031:
   LogPath: .\Log\FirmwareSimulator.log
 
 WT0032:
-  FirmwarePath: U:\WeidaHiTech\TestData\WDT8762A_flash_508k_2020_0925_000.bin
-  RawImagePath: U:\WeidaHiTech\TestData\WDT8762A_ImageDump_2020_0925_000.csv
+  FirmwarePath: U:\WeidaHiTech\TestData\WDT8762AT-CB1_flash_508k_2020_1130_000.bin
+  RawImagePath: U:\WeidaHiTech\TestData\WDT8762AT-CB1_ImageDump_2020_1130_000.csv
   LogPath: .\Log\FirmwareSimulator.log
 
 KoreaShinNts:

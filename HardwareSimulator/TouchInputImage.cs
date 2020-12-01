@@ -177,9 +177,24 @@ namespace HardwareSimulator
             negativeImageWriter.Flush();
         }
 
-        public void UpdatePositiveRegion(int threshild)
+        public void UpdatePositiveRegion(int threshold, bool enableHorizontalWhitening)
         {
             positiveRegion.Clear();
+
+            int[] row_average = new int[imageHeight];
+            for (int row = 0; row < imageHeight; row++)
+            {
+                int sum = 0;
+                if (enableHorizontalWhitening)
+                {
+                    for (int col = 0; col < imageWidth; col++)
+                    {
+                        int diff = referenceImage[row, col] - currentImage[row, col];
+                        sum += diff;
+                    }
+                }
+                row_average[row] = sum / imageWidth;
+            }
 
             using (StreamWriter writer = new StreamWriter("RegionLabelingInput.csv"))
             {
@@ -188,6 +203,12 @@ namespace HardwareSimulator
                     StringBuilder line = new StringBuilder();
                     for (int col = 0; col < imageWidth; col++)
                     {
+                        positiveImage[row, col] = (short)(referenceImage[row, col] - currentImage[row, col] - row_average[row]);
+                        if (positiveImage[row, col] < 0)
+                        {
+                            positiveImage[row, col] = 0;
+                        }
+
                         line.Append(positiveImage[row, col]);
                         line.Append(",");
                     }
@@ -195,7 +216,7 @@ namespace HardwareSimulator
                 }
             }
 
-            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshild, imageWidth, imageHeight);
+            int regionCount = RegionLabeling("RegionLabelingInput.csv", threshold, imageWidth, imageHeight);
 
             string log = string.Format("PositiveRegionCount = {0}", regionCount);
             logWriter.WriteLine(log);

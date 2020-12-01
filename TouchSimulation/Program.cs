@@ -26,6 +26,8 @@ namespace TouchSimulation
         static Image touchOutput;
         static Graphics comboGraphic;
 
+        #region Import Function Declaration
+
         [DllImport("FirmwareSimulator.dll")]
         public static extern void LoadParameterFromFirmwareBinary(string path);
 
@@ -53,6 +55,10 @@ namespace TouchSimulation
 
         [DllImport("FirmwareSimulator.dll")]
         public static extern void StartProcessTouchSignal();
+
+        #endregion Import Function Declaration
+
+        #region Export Function Declaration
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate int GetImageHeightFunctionPointer();
@@ -91,7 +97,7 @@ namespace TouchSimulation
         public delegate void UpdateNegativeImageFunctionPointer();
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate void UpdatePositiveRegionFunctionPointer(int threshold);
+        public delegate void UpdatePositiveRegionFunctionPointer(int threshold, bool enableHorizontalWhitening);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void UpdateNegativeRegionFunctionPointer(int threshold);
@@ -101,6 +107,10 @@ namespace TouchSimulation
                                                                  int touchOutputCount,
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] x,
                                                                  [MarshalAs(UnmanagedType.LPArray, SizeConst = 10)] int[] y);
+
+        #endregion Export Function Declaration
+
+        #region Export Function Definition
 
         public static bool GetNextFrame(bool flipX, bool flipY)
         {
@@ -192,9 +202,9 @@ namespace TouchSimulation
             touchInput.UpdateNegativeImage();
         }
 
-        public static void UpdatePositiveRegion(int threshold)
+        public static void UpdatePositiveRegion(int threshold, bool enableHorizontalWhitening)
         {
-            touchInput.UpdatePositiveRegion(threshold);
+            touchInput.UpdatePositiveRegion(threshold, enableHorizontalWhitening);
         }
 
         public static void UpdateNegativeRegion(int threshold)
@@ -222,6 +232,8 @@ namespace TouchSimulation
 
             frameImage.Save(Path.Combine(outputFolder, string.Format("TouchOutput{0:0000}.bmp", frameNo)));
         }
+
+        #endregion Export Function Definition
 
         static void Main(string[] args)
         {
