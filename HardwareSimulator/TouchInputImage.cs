@@ -10,8 +10,8 @@ static class Constants
     //public const string InputFolder = ".\\Input";
     public const string OutputFolderName = ".\\Output";
     public const string LogFolderName = ".\\Log";
-    public const string PositiveImageFileName = "PositiveImage.csv";
-    public const string NegativeImageFileName = "NegativeImage.csv";
+    public const string DeltaPositiveImageFileName = "DeltaPositiveImage.csv";
+    public const string DeltaNegativeImageFileName = "DeltaNegativeImage.csv";
     public const string LogFileName = "HardwareSimulator.log";
     public const string HeaderTag = "# CoolTouch image dump file";
     public const string FrameTag = "# Raw Image";
@@ -41,8 +41,8 @@ namespace HardwareSimulator
         public int imageHeight;
 
         public StreamReader rawImageReader;
-        public StreamWriter positiveImageWriter;
-        public StreamWriter negativeImageWriter;
+        public StreamWriter deltaPositiveImageWriter;
+        public StreamWriter deltaNegativeImageWriter;
         public StreamWriter logWriter;
 
         public short[,] currentImage;
@@ -62,8 +62,8 @@ namespace HardwareSimulator
             imageHeight = height;
 
             rawImageReader = new StreamReader(path);
-            positiveImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.PositiveImageFileName));
-            negativeImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.NegativeImageFileName));
+            deltaPositiveImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.DeltaPositiveImageFileName));
+            deltaNegativeImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.DeltaNegativeImageFileName));
             logWriter = new StreamWriter(Path.Combine(Constants.LogFolderName, Constants.LogFileName));
 
             currentImage = new short[height, width];
@@ -135,7 +135,7 @@ namespace HardwareSimulator
             Array.Copy(currentImage, referenceImage, imageWidth * imageHeight);
         }
 
-        public void UpdatePositiveImage()
+        public void UpdateDeltaPositiveImage()
         {
             for (int row = 0; row < imageHeight; row++)
             {
@@ -150,13 +150,13 @@ namespace HardwareSimulator
                     line.Append(positiveImage[row, col]);
                     line.Append(",");
                 }
-                positiveImageWriter.WriteLine(line);
+                deltaPositiveImageWriter.WriteLine(line);
             }
-            positiveImageWriter.WriteLine("");
-            positiveImageWriter.Flush();
+            deltaPositiveImageWriter.WriteLine("");
+            deltaPositiveImageWriter.Flush();
         }
 
-        public void UpdateNegativeImage()
+        public void UpdateDeltaNegativeImage()
         {
             for (int row = 0; row < imageHeight; row++)
             {
@@ -171,10 +171,10 @@ namespace HardwareSimulator
                     line.Append(negativeImage[row, col]);
                     line.Append(",");
                 }
-                negativeImageWriter.WriteLine(line);
+                deltaNegativeImageWriter.WriteLine(line);
             }
-            negativeImageWriter.WriteLine("");
-            negativeImageWriter.Flush();
+            deltaNegativeImageWriter.WriteLine("");
+            deltaNegativeImageWriter.Flush();
         }
 
         public void UpdatePositiveRegion(int threshold, bool enableHorizontalWhitening)

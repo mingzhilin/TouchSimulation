@@ -187,9 +187,11 @@
     <ClInclude Include="..\..\WT0032_main\Src\system\uart.h" />
     <ClInclude Include="..\..\WT0032_main\Src\system\usb.h" />
     <ClInclude Include="..\..\WT0032_main\Src\touch\algo_types.h" />
+    <ClInclude Include="..\..\WT0032_main\Src\touch\avl.h" />
     <ClInclude Include="..\..\WT0032_main\Src\touch\calibration.h" />
     <ClInclude Include="..\..\WT0032_main\Src\touch\cd_sstcon.h" />
     <ClInclude Include="..\..\WT0032_main\Src\touch\cs_sstcon.h" />
+    <ClInclude Include="..\..\WT0032_main\Src\touch\detect_lcd_on_off.h" />
     <ClInclude Include="..\..\WT0032_main\Src\touch\hopping.h" />
     <ClInclude Include="..\..\WT0032_main\Src\touch\ms_tcon.h" />
     <ClInclude Include="..\..\WT0032_main\Src\touch\postprocessing.h" />
@@ -238,9 +240,11 @@
     <ClCompile Include="..\..\WT0032_main\Src\system\syscon.c" />
     <ClCompile Include="..\..\WT0032_main\Src\system\usb.c" />
     <ClCompile Include="..\..\WT0032_main\Src\system\watchdog.c" />
+    <ClCompile Include="..\..\WT0032_main\Src\touch\avl.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\calibration.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\cd_sstcon.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\cs_sstcon.c" />
+    <ClCompile Include="..\..\WT0032_main\Src\touch\detect_lcd_on_off.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\eft.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\hopping.c" />
     <ClCompile Include="..\..\WT0032_main\Src\touch\mouse_emu.c" />

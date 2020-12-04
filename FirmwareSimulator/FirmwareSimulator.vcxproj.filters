@@ -192,6 +192,12 @@
     <ClInclude Include="..\..\WT0032_main\Src\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\avl.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\WT0032_main\Src\touch\detect_lcd_on_off.h">
+      <Filter>Header Files\Touch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.c">
@@ -351,6 +357,12 @@
       <Filter>Source Files\Pen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\WT0032_main\Src\touch\touch_output_filter.c">
+      <Filter>Source Files\Touch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\touch\avl.c">
+      <Filter>Source Files\Touch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\WT0032_main\Src\touch\detect_lcd_on_off.c">
       <Filter>Source Files\Touch</Filter>
     </ClCompile>
   </ItemGroup>
