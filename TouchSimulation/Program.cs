@@ -49,6 +49,8 @@ namespace TouchSimulation
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdateReferenceImageFunctionPointer UpdateReferenceImage,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdateDeltaPositiveImageFunctionPointer UpdateDeltaPositiveImage,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdateDeltaNegativeImageFunctionPointer UpdateDeltaNegativeImag,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateWhiteningPositiveImageFunctionPointer UpdateWhiteningPositiveImage,
+                                                         [MarshalAs(UnmanagedType.FunctionPtr)] UpdateWhiteningNegativeImageFunctionPointer UpdateWhiteningNegativeImag,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdatePositiveRegionFunctionPointer UpdatePositiveRegion,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] UpdateNegativeRegionFunctionPointer UpdateNegativeRegion,
                                                          [MarshalAs(UnmanagedType.FunctionPtr)] SaveTouchOutputImageFunctionPointer SaveTouchOuputImage);
@@ -97,7 +99,13 @@ namespace TouchSimulation
         public delegate void UpdateDeltaNegativeImageFunctionPointer();
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-        public delegate void UpdatePositiveRegionFunctionPointer(int threshold, bool enableHorizontalWhitening);
+        public delegate void UpdateWhiteningPositiveImageFunctionPointer(bool enableHorizontalWhitening);
+
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        public delegate void UpdateWhiteningNegativeImageFunctionPointer(bool enableHorizontalWhitening);
+
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        public delegate void UpdatePositiveRegionFunctionPointer(int threshold);
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         public delegate void UpdateNegativeRegionFunctionPointer(int threshold);
@@ -202,9 +210,19 @@ namespace TouchSimulation
             touchInput.UpdateDeltaNegativeImage();
         }
 
-        public static void UpdatePositiveRegion(int threshold, bool enableHorizontalWhitening)
+        public static void UpdateWhiteningPositiveImage(bool enableHorizontalWhitening)
         {
-            touchInput.UpdatePositiveRegion(threshold, enableHorizontalWhitening);
+            touchInput.UpdateWhiteningPositiveImage(enableHorizontalWhitening);
+        }
+
+        public static void UpdateWhiteningNegativeImage(bool enableHorizontalWhitening)
+        {
+            touchInput.UpdateWhiteningNegativeImage(enableHorizontalWhitening);
+        }
+
+        public static void UpdatePositiveRegion(int threshold)
+        {
+            touchInput.UpdatePositiveRegion(threshold);
         }
 
         public static void UpdateNegativeRegion(int threshold)
@@ -292,6 +310,8 @@ namespace TouchSimulation
                                    UpdateReferenceImage,
                                    UpdateDeltaPositiveImage,
                                    UpdateDeltaNegativeImage,
+                                   UpdateWhiteningPositiveImage,
+                                   UpdateWhiteningNegativeImage,
                                    UpdatePositiveRegion,
                                    UpdateNegativeRegion,
                                    SaveTouchOutputImage);

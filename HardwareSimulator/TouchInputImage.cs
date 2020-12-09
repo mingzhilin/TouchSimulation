@@ -10,8 +10,10 @@ static class Constants
     //public const string InputFolder = ".\\Input";
     public const string OutputFolderName = ".\\Output";
     public const string LogFolderName = ".\\Log";
-    public const string DeltaPositiveImageFileName = "DeltaPositiveImage.csv";
-    public const string DeltaNegativeImageFileName = "DeltaNegativeImage.csv";
+    public const string DeltaPositiveImageFileName = "01_DeltaPositiveImage.csv";
+    public const string DeltaNegativeImageFileName = "01_DeltaNegativeImage.csv";
+    public const string WhiteningPositiveImageFileName = "02_WhiteningPositiveImage.csv";
+    public const string WhiteningNegativeImageFileName = "02_WhiteningNegativeImage.csv";
     public const string LogFileName = "HardwareSimulator.log";
     public const string HeaderTag = "# CoolTouch image dump file";
     public const string FrameTag = "# Raw Image";
@@ -43,6 +45,8 @@ namespace HardwareSimulator
         public StreamReader rawImageReader;
         public StreamWriter deltaPositiveImageWriter;
         public StreamWriter deltaNegativeImageWriter;
+        public StreamWriter whiteningPositiveImageWriter;
+        public StreamWriter whiteningNegativeImageWriter;
         public StreamWriter logWriter;
 
         public short[,] currentImage;
@@ -64,6 +68,8 @@ namespace HardwareSimulator
             rawImageReader = new StreamReader(path);
             deltaPositiveImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.DeltaPositiveImageFileName));
             deltaNegativeImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.DeltaNegativeImageFileName));
+            whiteningPositiveImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.WhiteningPositiveImageFileName));
+            whiteningNegativeImageWriter = new StreamWriter(Path.Combine(Constants.OutputFolderName, Constants.WhiteningNegativeImageFileName));
             logWriter = new StreamWriter(Path.Combine(Constants.LogFolderName, Constants.LogFileName));
 
             currentImage = new short[height, width];
@@ -177,10 +183,8 @@ namespace HardwareSimulator
             deltaNegativeImageWriter.Flush();
         }
 
-        public void UpdatePositiveRegion(int threshold, bool enableHorizontalWhitening)
+        public void UpdateWhiteningPositiveImage(bool enableHorizontalWhitening)
         {
-            positiveRegion.Clear();
-
             int[] row_average = new int[imageHeight];
             for (int row = 0; row < imageHeight; row++)
             {
@@ -189,12 +193,69 @@ namespace HardwareSimulator
                 {
                     for (int col = 0; col < imageWidth; col++)
                     {
-                        int diff = referenceImage[row, col] - currentImage[row, col];
-                        sum += diff;
+                        sum += positiveImage[row, col] + negativeImage[row, col];
                     }
                 }
                 row_average[row] = sum / imageWidth;
             }
+
+            for (int row = 0; row < imageHeight; row++)
+            {
+                StringBuilder line = new StringBuilder();
+                for (int col = 0; col < imageWidth; col++)
+                {
+                    positiveImage[row, col] -= (short)row_average[row];
+                    if (positiveImage[row, col] < 0)
+                    {
+                        positiveImage[row, col] = 0;
+                    }
+                    line.Append(positiveImage[row, col]);
+                    line.Append(",");
+                }
+                whiteningPositiveImageWriter.WriteLine(line);
+            }
+            whiteningPositiveImageWriter.WriteLine("");
+            whiteningPositiveImageWriter.Flush();
+        }
+
+        public void UpdateWhiteningNegativeImage(bool enableHorizontalWhitening)
+        {
+            int[] row_average = new int[imageHeight];
+            for (int row = 0; row < imageHeight; row++)
+            {
+                int sum = 0;
+                if (enableHorizontalWhitening)
+                {
+                    for (int col = 0; col < imageWidth; col++)
+                    {
+                        sum += positiveImage[row, col] + negativeImage[row, col];
+                    }
+                }
+                row_average[row] = sum / imageWidth;
+            }
+
+            for (int row = 0; row < imageHeight; row++)
+            {
+                StringBuilder line = new StringBuilder();
+                for (int col = 0; col < imageWidth; col++)
+                {
+                    negativeImage[row, col] -= (short)row_average[row];
+                    if (negativeImage[row, col] > 0)
+                    {
+                        negativeImage[row, col] = 0;
+                    }
+                    line.Append(negativeImage[row, col]);
+                    line.Append(",");
+                }
+                whiteningNegativeImageWriter.WriteLine(line);
+            }
+            whiteningNegativeImageWriter.WriteLine("");
+            whiteningNegativeImageWriter.Flush();
+        }
+
+        public void UpdatePositiveRegion(int threshold)
+        {
+            positiveRegion.Clear();
 
             using (StreamWriter writer = new StreamWriter("RegionLabelingInput.csv"))
             {
@@ -203,7 +264,7 @@ namespace HardwareSimulator
                     StringBuilder line = new StringBuilder();
                     for (int col = 0; col < imageWidth; col++)
                     {
-                        positiveImage[row, col] = (short)(referenceImage[row, col] - currentImage[row, col] - row_average[row]);
+                        positiveImage[row, col] = (short)(referenceImage[row, col] - currentImage[row, col]);
                         if (positiveImage[row, col] < 0)
                         {
                             positiveImage[row, col] = 0;
